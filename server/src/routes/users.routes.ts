@@ -8,7 +8,7 @@ usersRouter.use(express.json());
 
 usersRouter.get("/", async (_req: Request, res: Response) => {
     try {
-        // Call find with an empty filter object, meaning it returns all documents in the collection. Saves as Game array to take advantage of types
+        // Call find with an empty filter object, meaning it returns all documents in the collection. Saves as User array to take advantage of types
         const games = await collections.users.find({}).toArray();
 
         res.status(200).send(games);
@@ -17,7 +17,6 @@ usersRouter.get("/", async (_req: Request, res: Response) => {
     }
 });
 
-// Example route: http://localhost:8080/games/610aaf458025d42e7ca9fcd0
 usersRouter.get("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
 
