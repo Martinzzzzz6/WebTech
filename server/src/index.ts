@@ -3,11 +3,10 @@ import { connectToDatabase } from "./services/database.services";
 import { usersRouter } from "./routes/users.routes";
 
 const app = express();
-const port = 8080; // default port to listen
+const port = 8080;
 
 connectToDatabase()
     .then(() => {
-        // send all calls to /games to our gamesRouter
         app.use("/users", usersRouter);
 
         // start the Express server
